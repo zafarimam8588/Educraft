@@ -81,7 +81,7 @@ const Settings = () => {
 
   const handlePassword = (e) => {
     e.preventDefault();
-    const { newPassword, confirmPassword } = password;
+    const {newPassword, confirmPassword } = password;
     if (newPassword === confirmPassword) {
       updatePassword(token, password);
     } else {

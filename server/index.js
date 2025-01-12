@@ -23,23 +23,22 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
 
-
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(fileUpload(
-    {
-        useTempFiles:true,
-        tempFileDir:"/tmp"
-    }
-))
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp",
+  })
+);
 
-app.use(cors(
-    {
-        origin:"http://localhost:3000",
-        credentials:true
-    }
-))
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 app.use("/api/v1/auth", userRoutes);
 
@@ -60,4 +59,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-

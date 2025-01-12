@@ -9,8 +9,6 @@ exports.resetPasswordToken = async(req,res)=>{
 
     const user = await User.findOne({email:email});
     if (!user) {
-
-        
         return res.json({
             success: false,
             message: `This Email: ${email} is not Registered With Us Enter a Valid Email `,
@@ -26,7 +24,7 @@ exports.resetPasswordToken = async(req,res)=>{
         {new:true}
     )
         // YOU NEED TO CHANGE THIS IN FUTURE
-    const url = `https://studynotion/update-password/${token}`; // YOU NEED TO UPDATE WITH ORIGINAL URL THEN IT WILL WORK
+    const url = `https://study-notion-omega-nine.vercel.app/update-password/${token}`; // YOU NEED TO UPDATE WITH ORIGINAL URL THEN IT WILL WORK
 
     await mailSender(
         email,

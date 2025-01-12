@@ -39,7 +39,7 @@ export const getAllCourses = async () => {
     result = response?.data?.data;
   } catch (error) {
     console.log("GET_ALL_COURSE_API API ERROR............", error);
-    toast.error(error.message);
+    toast.error(error.response.data.message);
   }
   toast.dismiss(toastId);
   return result;
@@ -58,7 +58,7 @@ export const fetchCourseDetails = async (courseId, dispatch) => {
     if (!response.data.success) {
       throw new Error(response.data.message);
     }
-    result = response?.data?.data
+    result = response?.data?.data;
     // console.log(result)
   } catch (error) {
     console.log("COURSE_DETAILS_API API ERROR............", error);
@@ -105,7 +105,7 @@ export const addCourseDetails = async (data, token) => {
     result = response?.data?.data;
   } catch (error) {
     console.log("CREATE COURSE API ERROR............", error);
-    toast.error(error.response.data.message);
+    toast.error(error?.response?.data?.message);
   }
   toast.dismiss(toastId);
   return result;
@@ -128,7 +128,7 @@ export const editCourseDetails = async (data, token) => {
     result = response?.data?.data;
   } catch (error) {
     console.log("EDIT COURSE API ERROR............", error);
-    toast.error(error.response.data.message);
+    toast.error(error?.response?.data?.message);
   }
   toast.dismiss(toastId);
   return result;
@@ -151,7 +151,7 @@ export const createSection = async (data, token) => {
     console.log("create API RESULT............", result);
   } catch (error) {
     console.log("CREATE SECTION API ERROR............", error);
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message);
   }
   toast.dismiss(toastId);
   return result;
@@ -173,7 +173,7 @@ export const createSubSection = async (data, token) => {
     result = response?.data?.data;
   } catch (error) {
     console.log("CREATE SUB-SECTION API ERROR............", error);
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message);
   }
   toast.dismiss(toastId);
   return result;
@@ -196,7 +196,7 @@ export const updateSection = async (data, token) => {
     console.log("Update API RESULT............", result);
   } catch (error) {
     console.log("UPDATE SECTION API ERROR............", error);
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message);
   }
   toast.dismiss(toastId);
   return result;
@@ -369,7 +369,7 @@ export const markLectureAsComplete = async (data, token) => {
     result = true;
   } catch (error) {
     console.log("MARK_LECTURE_AS_COMPLETE_API API ERROR............", error);
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message);
     result = false;
   }
   toast.dismiss(toastId);
@@ -421,7 +421,7 @@ export const addCourseToCategory = async (data, token) => {
   } catch (error) {
     success = false;
     console.log("ADD COURSE TO CATEGORY API ERROR............", error);
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message);
   }
   toast.dismiss(toastId);
   return success;
@@ -443,7 +443,7 @@ export const searchCourses = async (searchQuery, dispatch) => {
     result = response?.data?.data;
   } catch (error) {
     console.log("SEARCH COURSES API ERROR............", error);
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message);
   }
   // toast.dismiss(toastId)
   dispatch(setProgress(100));
@@ -467,7 +467,7 @@ export const createCategory = async (data, token) => {
   } catch (error) {
     success = false;
     console.log("CREATE CATEGORY API ERROR............", error);
-    toast.error(error.message);
+    toast.error(error?.response?.data?.message);
   }
   toast.dismiss(toastId);
   return success;
