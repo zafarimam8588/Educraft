@@ -8,7 +8,6 @@ import ProfileDropDown from "../../components/core/Auth/ProfileDropDown";
 import { categories } from "../../services/api";
 import { apiConnector } from "../../services/apiConnector";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { HiSearch } from "react-icons/hi";
 import { useNavigate } from "react-router";
 import { FaChevronDown } from "react-icons/fa";
 
@@ -196,7 +195,7 @@ const Navbar = ({ setProgress }) => {
             </nav>
           </div>
         </div>
-                {/* DESKTOP NAV */}
+        {/* DESKTOP NAV */}
         <nav>
           <ul className=" flex-row gap-x-6 text-richblack-25 gap-5 hidden md:flex">
             {NavbarLinks?.map((element, index) => (
