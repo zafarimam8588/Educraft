@@ -10,15 +10,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: clone the repo
+      - name: Clone the repo
         uses: actions/checkout@v3
 
-      - name: install node js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-      - name: install dependencies
-        run: npm install
+
+      - name: Install dependencies
+        run: |
+          cd server
+          npm install
 
       - name: Verify deployment setup
         run: echo "Deployment setup verified"
@@ -26,7 +29,7 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: server/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('server/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
