@@ -156,10 +156,7 @@ const Footer = () => {
           <div className="flex flex-row">
             {BottomFooter.map((ele, i) => {
               return (
-                <div
-                  key={i}
-                  className="px-3"
-                >
+                <div key={i} className="px-3">
                   <Link to={ele.split(" ").join("-").toLocaleLowerCase()}>
                     {ele}
                   </Link>
@@ -168,7 +165,9 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">Made with ❤️ CodeHelp © 2024 Studynotion</div>
+          <div className="text-center">
+            Made with ❤️ Zafar Imam © 2025 Studynotion
+          </div>
         </div>
       </div>
     </div>
